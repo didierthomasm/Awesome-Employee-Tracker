@@ -1,16 +1,14 @@
 const express = require('express');
+const api = require('./routes/index');
 const pool = require('./connection');
-// const mysql = require('mysql2');
-// require('dotenv').config();
-//
-// const dbUsername = process.env.DB_USERNAME;
-// const dbPassword = process.env.DB_PASSWORD;
 
 const PORT = process.env.PORT || 3001;
 const app = express();
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
+app.use('/api', api);
 
 // const connection = mysql.createConnection(
 //   {
@@ -32,18 +30,32 @@ app.use(express.json());
   console.log(results);
 })*/
 
-async function fetchDepartments() {
+/*async function fetchDepartments() {
   try {
     const [rows, fields] = await pool.query('SELECT * FROM department');
     console.log('Departments:', rows);
   } catch (error) {
     console.error('Error:', error);
-  } finally {
-    await pool.end(); // Make sure to end the connection pool after using it
   }
 }
 
-fetchDepartments();
+async function fetchEmployee() {
+  try {
+    const [rows, fields] = await pool.query('SELECT * FROM employee');
+    console.log('Employee:', rows);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+
+
+fetchEmployee();
+fetchDepartments();*/
+
+
+
+
 
 app.use((req, res) => {
   res.status(404).end();

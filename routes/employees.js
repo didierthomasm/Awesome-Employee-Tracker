@@ -2,7 +2,7 @@ const pool = require("../connection");
 const express = require('express');
 const employees = express.Router();
 
-employees.get('/employees', async (req, res) => {
+employees.get('/', async (req, res) => {
   try {
     const [rows, fields] = await pool.query('SELECT * FROM employee');
     res.json(rows);

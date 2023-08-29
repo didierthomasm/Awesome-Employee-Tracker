@@ -1,6 +1,6 @@
+'use strict'
 const express = require('express');
-const api = require('./routes/index');
-const pool = require('./connection');
+const routes = require('./routes/index');
 const { clog } = require('./middleware/clog');
 
 const PORT = process.env.PORT || 3001;
@@ -11,7 +11,7 @@ app.use(clog);
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.use('/api', api);
+app.use(routes);
 
 
 // const connection = mysql.createConnection(

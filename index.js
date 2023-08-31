@@ -1,5 +1,5 @@
 const inquirer = require('inquirer');
-const employee = require('./lib/inputs');
+const employee = require('./lib/employee');
 
 async function main() {
   const { options } = await inquirer.prompt([
@@ -28,7 +28,7 @@ async function main() {
       await employee.addEmployee();
       break;
     case 'Update employee role':
-      await employee.updateEmployeRole();
+      await employee.updateEmployeeRole();
       break;
     case 'View all roles':
       await employee.allRoles();
@@ -47,10 +47,10 @@ async function main() {
       await employee.shutDown();
       break;
   }
-
+  await main();
   // Handle other actions...
 
-  console.log('Goodbye!');
+  // console.log('Goodbye!');
 }
 
 main();

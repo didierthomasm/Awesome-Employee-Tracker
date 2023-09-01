@@ -1,3 +1,4 @@
+'use strict'
 const pool = require("../config/connection");
 
 async function roles() {
@@ -8,10 +9,7 @@ async function roles() {
         FROM role
     `;
     const [rows] = await pool.query(query);
-
-    // Extract only the title values using map()
     roleTitles = rows.map(row => row.title);
-
     return roleTitles;
   } catch (error) {
     console.error('Error:', error);
@@ -27,7 +25,7 @@ async function managers() {
     `;
     const [rows] = await pool.query(query);
     managerNames = rows.map((row => row.manager));
-    managerNames.push('Null');
+    managerNames.push('None');
     return managerNames;
   } catch (error) {
     console.error('Error:', error);
@@ -49,4 +47,19 @@ async function departments() {
   }
 }
 
-module.exports = { roles, managers, departments }
+async function employees() {
+  let employeeNames = [];
+  try {
+    const query = `
+        SELECT CONCAT(first_name, ' ', last_name)
+        FROM employee
+    `;
+    const [rows] = await pool.query(query);
+    employeeNames = rows.map((row => row.name));
+    return employeeNames;
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+module.exports = { roles, managers, departments, employees };

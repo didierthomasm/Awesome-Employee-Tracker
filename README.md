@@ -103,7 +103,7 @@ This project is licensed under the [MIT License](https://opensource.org/licenses
 If you have any questions, suggestions, or issues, feel free to reach out to me:
 
 - Email: didierthomas.m@gmail.com
-- GitHub: [YourGitHubUsername](https://github.com/didierthomasm/)
+- GitHub: [didierthomasm](https://github.com/didierthomasm/)
 
 Feel free to open an issue in the [GitHub repository](https://github.com/didierthomasm/Awesome-Employee-Tracker) 
 if you encounter any problems or have suggestions for improvements.

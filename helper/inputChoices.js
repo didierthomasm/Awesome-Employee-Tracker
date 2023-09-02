@@ -3,83 +3,82 @@
 // Import the database connection module
 const pool = require("../config/connection");
 
-// Function to retrieve role titles from the database
+// Function to retrieve role titles and ids from the database
 async function roles() {
-  let roleTitles = [];
+  let roleList = [];
   try {
-    // SQL query to retrieve role titles
+    // SQL query to retrieve role titles and ids
     const query = `
-        SELECT title
+        SELECT id, title
         FROM role
     `;
     // Execute the query using the database connection
-    const [rows] = await pool.query(query);
-    // Extract role titles from the query result using map()
-    roleTitles = rows.map(row => row.title);
-    // Return the array of role titles
-    return roleTitles;
+    const [roleRows] = await pool.query(query);
+    // Extract role titles and ids from the query result using map()
+    roleList = roleRows.map(({ id, title }) => ({ name: title, value: id }));
+    // Return the array of role titles and ids
+    return roleList;
   } catch (error) {
     console.error('Error:', error);
   }
 }
 
-// Function to retrieve manager names from the database
+// Function to retrieve manager names and ids from the database
 async function managers() {
-  let managerNames = [];
+  let managerList = [];
   try {
-    // SQL query to retrieve manager names
+    // SQL query to retrieve manager names and ids
     const query = `
-      SELECT CONCAT(em.first_name, ' ', em.last_name) AS manager
-      FROM employee em
-    `;
+            SELECT id, CONCAT(first_name, ' ', last_name) AS managerName
+            FROM employee
+        `;
     // Execute the query using the database connection
-    const [rows] = await pool.query(query);
-    // Extract manager names from the query result using map()
-    managerNames = rows.map(row => row.manager);
-    // Add 'None' as an option to the manager names
-    managerNames.push('None');
-    // Return the array of manager names
-    return managerNames;
+    const [managerRows] = await pool.query(query);
+    // Extract manager names and ids from the query result using map()
+    managerList = managerRows.map(({ id, managerName }) => ({ name: managerName, value: id }));
+    // Add to the list a None in the case is no manager
+    managerList.push({name: 'None', value: null});
+    return managerList;
   } catch (error) {
     console.error('Error:', error);
   }
 }
 
-// Function to retrieve department names from the database
+// Function to retrieve department names and ids from the database
 async function departments() {
-  let departmentNames = [];
+  let departmentList = [];
   try {
-    // SQL query to retrieve department names
+    // SQL query to retrieve department names and ids
     const query = `
-        SELECT name
+        SELECT id, name
         FROM department
     `;
     // Execute the query using the database connection
-    const [rows] = await pool.query(query);
-    // Extract department names from the query result using map()
-    departmentNames = rows.map(row => row.name);
-    // Return the array of department names
-    return departmentNames;
+    const [departmentRows] = await pool.query(query);
+    // Extract department names and ids from the query result using map()
+    departmentList = departmentRows.map(row => ({name: row.name, value: row.id}));
+    // Return the array of department names and ids
+    return departmentList;
   } catch (error) {
     console.error('Error:', error);
   }
 }
 
-// Function to retrieve employee names from the database
+// Function to retrieve employee names and ids from the database
 async function employees() {
-  let employeeNames = [];
+  let employeeList = [];
   try {
-    // SQL query to retrieve employee names
+    // SQL query to retrieve employee names and ids
     const query = `
-        SELECT CONCAT(first_name, ' ', last_name) AS name
+        SELECT id, CONCAT(first_name, ' ', last_name) AS employeeName
         FROM employee
     `;
     // Execute the query using the database connection
     const [rows] = await pool.query(query);
-    // Extract employee names from the query result using map()
-    employeeNames = rows.map((row => row.name));
-    // Return the array of employee names
-    return employeeNames;
+    // Extract employee names and ids from the query result using map()
+    employeeList = rows.map(({employeeName, id}) => ({name: employeeName, value: id }));
+    // Return the array of employee names and ids
+    return employeeList;
   } catch (error) {
     console.error('Error:', error);
   }

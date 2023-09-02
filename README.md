@@ -1,8 +1,10 @@
 # Employee Management System
 
-Manage your company's employees, roles, and departments with ease using the Employee Management System. This command-line application allows you to view, add, and update employee information, roles, and departments effortlessly.
+Manage your company's employees, roles, and departments with ease using the Employee Management System. 
+This command-line application allows you to view, add, 
+and update employee information, roles, and departments effortlessly.
 
-![Employee Management System](./assets/employee-tracker-readme.png)
+![Screenshot of the Employee Management System interface](assets/img/employee-tracker-readme.png)
 
 ## Table of Contents
 
@@ -14,19 +16,19 @@ Manage your company's employees, roles, and departments with ease using the Empl
     - [Adding Employees, Roles, and Departments](#adding-employees-roles-and-departments)
     - [Updating Employee Roles](#updating-employee-roles)
 - [Features](#features)
-- [Features](#features)
 - [Walkthrough Video](#walkthrough-video)
 - [License](#license)
 - [Contact](#contact)
+- [Feedback](#feedback)
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js (at least version 12)
-- MySQL Server
-- Inquirer
-- DotEnv 
+- `Node.js` (at least version 12)
+- `MySQL Server`
+- `Inquirer`
+- `DotEnv`
 
 ### Installation
 
@@ -54,7 +56,8 @@ Manage your company's employees, roles, and departments with ease using the Empl
     DB_DATABASE=employee_db
 
 
-5. Set up your MySQL database and update the config/connection.js file with your database configuration.
+5. Set up your MySQL database and update the config/connection.js file with your database configuration. 
+    Here is a link to the documentation for installation [MySQL Installation Guide](https://dev.mysql.com/doc/mysql-installation-excerpt/5.7/en/)
 
 6. Run the application:
 
@@ -84,8 +87,8 @@ Manage your company's employees, roles, and departments with ease using the Empl
 
 ## Walkthrough Video
 
-For a detailed walkthrough of how to use the Awesome SVG Logo Maker,
-check out our [Walkthrough Video](https://drive.google.com/file/d/1o1zvO34JTeGKIm0PVyVLlOFBojJ1Ib0-/view?usp=sharing).
+For a detailed walkthrough of how to use the Employee Management System,
+check out our [Walkthrough Video](https://drive.google.com/file/d/1JRBLX0_hMgsw3X9pRoe-JXvu1tbuwtPs/view?usp=sharing).
 ![Example GIF](./assets/video/Employee-Tracker.gif)
 
 ## Contributing
@@ -107,3 +110,8 @@ If you have any questions, suggestions, or issues, feel free to reach out to me:
 
 Feel free to open an issue in the [GitHub repository](https://github.com/didierthomasm/Awesome-Employee-Tracker) 
 if you encounter any problems or have suggestions for improvements.
+
+## Feedback
+
+If you find this project helpful or learn something from the source code, please consider giving it a 🌟 on GitHub! 
+Also, I'd love to hear your thoughts and suggestions. Let's connect and make this project even better!
